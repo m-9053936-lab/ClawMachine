@@ -11,9 +11,13 @@
 
   body {
     font-family: 'Fredoka One', cursive;
-    background: linear-gradient(135deg, #b8f0f0 0%, #d4f5f5 50%, #e8f8f8 100%);
+    background:
+      radial-gradient(circle at 50% 18%, rgba(255,79,163,0.18) 0%, transparent 32%),
+      radial-gradient(circle at 10% 85%, rgba(139,23,69,0.28) 0%, transparent 35%),
+      linear-gradient(135deg, #050507 0%, #16070d 42%, #3a0b1d 70%, #08080b 100%);
     min-height: 100vh;
     overflow: hidden;
+    position: relative;
     user-select: none;
     -webkit-user-select: none;
   }
@@ -44,7 +48,7 @@
     text-align: center;
     font-size: 22px;
     color: #fff;
-    text-shadow: 3px 3px 0 #2a9a9f, 0 0 20px rgba(93,224,230,0.6);
+    text-shadow: 3px 3px 0 #5a102b, 0 0 20px rgba(93,224,230,0.6);
     letter-spacing: 2px;
     animation: titleBounce 2s ease-in-out infinite;
   }
@@ -62,11 +66,11 @@
   }
 
   .stat-card {
-    background: linear-gradient(135deg, rgba(58,184,190,0.9), rgba(42,154,159,0.9));
+    background: linear-gradient(135deg, rgba(17,17,22,0.96), rgba(90,16,43,0.94));
     border-radius: 15px;
     padding: 8px 18px;
-    border: 3px solid rgba(255,255,255,0.4);
-    box-shadow: 0 6px 0 rgba(42,154,159,0.6), 0 8px 20px rgba(0,0,0,0.2);
+    border: 3px solid rgba(255,182,217,0.65);
+    box-shadow: 0 6px 0 #35091b, 0 8px 24px rgba(0,0,0,0.45), 0 0 18px rgba(255,79,163,0.12);
     text-align: center;
     min-width: 90px;
   }
@@ -79,8 +83,8 @@
 
   .stat-value {
     font-size: 22px;
-    color: #ffd700;
-    text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+    color: #ffffff;
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.5), 0 0 8px rgba(255,79,163,0.35);
     font-family: 'Press Start 2P', monospace;
   }
 
@@ -88,8 +92,8 @@
     text-align: center;
     font-size: 12px;
     color: #fff;
-    text-shadow: 2px 2px 0 #2a9a9f;
-    background: rgba(42,154,159,0.7);
+    text-shadow: 2px 2px 0 #5a102b, 0 0 8px rgba(255,79,163,0.4);
+    background: linear-gradient(135deg, rgba(22,7,13,0.88), rgba(90,16,43,0.82));
     padding: 6px 14px;
     border-radius: 20px;
     align-self: center;
@@ -106,10 +110,10 @@
 
   .m-btn {
     width: 70px; height: 70px;
-    background: linear-gradient(180deg, #5de0e6 0%, #3ab8be 100%);
+    background: linear-gradient(180deg, #ff7ab8 0%, #ff4fa3 45%, #8b1745 100%);
     border-radius: 50%;
     border: 4px solid rgba(255,255,255,0.5);
-    box-shadow: 0 6px 0 #2a9a9f, 0 10px 20px rgba(0,0,0,0.3);
+    box-shadow: 0 6px 0 #35091b, 0 10px 22px rgba(0,0,0,0.5), 0 0 18px rgba(255,79,163,0.22);
     display: flex; align-items: center; justify-content: center;
     font-size: 28px; color: #fff;
     cursor: pointer;
@@ -120,13 +124,13 @@
 
   .m-btn:active, .m-btn.pressed {
     transform: translateY(5px);
-    box-shadow: 0 1px 0 #2a9a9f, 0 2px 6px rgba(0,0,0,0.3);
+    box-shadow: 0 1px 0 #5a102b, 0 2px 6px rgba(0,0,0,0.3);
   }
 
   .m-btn.drop {
     width: 85px; height: 85px;
-    background: linear-gradient(180deg, #ff9ec4 0%, #e07aa0 100%);
-    box-shadow: 0 6px 0 #c0608a, 0 10px 20px rgba(0,0,0,0.3);
+    background: linear-gradient(180deg, #ffffff 0%, #ffb6d9 28%, #ff4fa3 68%, #8b1745 100%);
+    box-shadow: 0 6px 0 #5a102b, 0 10px 24px rgba(0,0,0,0.55), 0 0 22px rgba(255,79,163,0.3);
     font-size: 14px;
   }
 
@@ -154,15 +158,15 @@
   }
 
   .action-btn:active { transform: translateY(3px); box-shadow: 0 1px 0 rgba(0,0,0,0.2); }
-  .sound-btn { background: linear-gradient(135deg, #ffd700, #ffaa00); color: #333; }
-  .bgm-btn { background: linear-gradient(135deg, #c084fc, #9333ea); color: #fff; }
-  .reset-btn { background: linear-gradient(135deg, #ff6b6b, #cc4444); }
+  .sound-btn { background: linear-gradient(135deg, #ffffff 0%, #ffb6d9 28%, #ff4fa3 65%, #8b1745 100%); color: #16070d; }
+  .bgm-btn { background: linear-gradient(135deg, #8b1745, #ff4fa3); color: #fff; }
+  .reset-btn { background: linear-gradient(135deg, #ff6fa8, #5a102b); }
 
   .collection-bar {
-    background: rgba(42,154,159,0.85);
+    background: linear-gradient(135deg, rgba(9,9,12,0.94), rgba(58,11,29,0.92));
     border-radius: 15px;
     padding: 8px 12px;
-    border: 3px solid rgba(255,255,255,0.3);
+    border: 3px solid rgba(255,182,217,0.5);
     backdrop-filter: blur(6px);
     max-width: 500px;
     margin: 0 auto;
@@ -224,13 +228,13 @@
     z-index: 1000;
     opacity: 0; pointer-events: none;
     transition: opacity 0.4s;
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
   }
 
   .overlay.active { opacity: 1; pointer-events: all; }
 
   .overlay-box {
-    background: linear-gradient(135deg, #5de0e6, #3ab8be);
+    background: linear-gradient(145deg, #09090c 0%, #3a0b1d 58%, #8b1745 100%);
     border-radius: 25px;
     padding: 35px;
     text-align: center;
@@ -260,28 +264,30 @@
     font-family: 'Fredoka One', cursive;
     font-size: 18px;
     padding: 14px 32px;
-    background: linear-gradient(135deg, #ffd700, #ffaa00);
+    background: linear-gradient(135deg, #ffffff 0%, #ffb6d9 28%, #ff4fa3 65%, #8b1745 100%);
     border: 4px solid rgba(255,255,255,0.5);
     border-radius: 25px;
-    color: #333;
+    color: #16070d;
     cursor: pointer;
     margin-top: 20px;
-    box-shadow: 0 6px 0 #cc8800;
+    box-shadow: 0 6px 0 #5a102b;
     transition: transform 0.1s;
   }
 
-  .play-btn:active { transform: translateY(4px); box-shadow: 0 2px 0 #cc8800; }
+  .play-btn:active { transform: translateY(4px); box-shadow: 0 2px 0 #5a102b; }
+
+  @media (max-width: 768px) {
+    .overlay { backdrop-filter: none; -webkit-backdrop-filter: none; }
+    .collection-bar { backdrop-filter: none; -webkit-backdrop-filter: none; }
+  }
 
   @media (max-width: 600px) {
-    .title-bar { font-size: 16px; }
+    .title-bar { font-size: 16px; animation-duration: 3s; }
     .stat-card { min-width: 70px; padding: 6px 10px; }
     .stat-value { font-size: 16px; }
     .m-btn { width: 60px; height: 60px; font-size: 22px; }
     .m-btn.drop { width: 72px; height: 72px; font-size: 12px; }
     .controls-hint { font-size: 10px; }
-    .controls-hint, .collection-bar { backdrop-filter: none; }
-    .title-bar { animation: none; }
-    .collection-item { animation: none; }
   }
 </style>
 </head>
@@ -413,12 +419,23 @@
     startBgm();
   }
 
+  // ============ MOBILE PERFORMANCE ============
+  const isMobile = window.matchMedia('(max-width: 768px), (pointer: coarse)').matches;
+  const MAX_PIXEL_RATIO = isMobile ? 1.25 : Math.min(window.devicePixelRatio, 2);
+  const MAX_PARTICLES = isMobile ? 28 : 60;
+  const TOY_SEGMENTS = isMobile ? 12 : 20;
+
   // ============ THREE.JS SETUP ============
   const canvas = document.getElementById('canvas3d');
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+  const renderer = new THREE.WebGLRenderer({
+    canvas,
+    antialias: !isMobile,
+    alpha: false,
+    powerPreference: 'high-performance'
+  });
+  renderer.setPixelRatio(MAX_PIXEL_RATIO);
   renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.shadowMap.enabled = false;
+  renderer.shadowMap.enabled = !isMobile;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.1;
@@ -433,14 +450,14 @@
   camera.lookAt(0, 1, 0);
 
   // ============ LIGHTING ============
-  const ambientLight = new THREE.HemisphereLight(0xffffff, 0x88ccff, 0.6);
+  const ambientLight = new THREE.HemisphereLight(0xffffff, 0x3a0b1d, 0.62);
   scene.add(ambientLight);
 
   const dirLight = new THREE.DirectionalLight(0xffffff, 1.2);
   dirLight.position.set(5, 10, 7);
   dirLight.castShadow = true;
-  dirLight.shadow.mapSize.width = 512;
-  dirLight.shadow.mapSize.height = 512;
+  dirLight.shadow.mapSize.width = isMobile ? 512 : 1024;
+  dirLight.shadow.mapSize.height = isMobile ? 512 : 1024;
   dirLight.shadow.camera.near = 0.5;
   dirLight.shadow.camera.far = 30;
   dirLight.shadow.camera.left = -8;
@@ -454,7 +471,7 @@
   insideLight.position.set(0, 3, 0);
   scene.add(insideLight);
 
-  const fillLight = new THREE.PointLight(0xff9ec4, 0.5, 8);
+  const fillLight = new THREE.PointLight(0xffffff, 0.5, 8);
   fillLight.position.set(-3, 2, 3);
   scene.add(fillLight);
 
@@ -468,7 +485,7 @@
     roughness: 0.05, metalness: 0.1, transmission: 0.6,
     thickness: 0.5, clearcoat: 1.0, clearcoatRoughness: 0.1
   });
-  const matMetal = new THREE.MeshStandardMaterial({ color: 0xaaaaaa, roughness: 0.3, metalness: 0.9 });
+  const matMetal = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.24, metalness: 0.92 });
   const matMetalDark = new THREE.MeshStandardMaterial({ color: 0x666666, roughness: 0.4, metalness: 0.8 });
   const matFloor = new THREE.MeshStandardMaterial({ color: 0x90d8dc, roughness: 0.7 });
 
@@ -603,12 +620,12 @@
     const mat = new THREE.MeshStandardMaterial({ color, roughness: 0.6, metalness: 0.05 });
     const matDark = new THREE.MeshStandardMaterial({ color: type.earColor || color, roughness: 0.6 });
 
-    const body = new THREE.Mesh(new THREE.SphereGeometry(0.35, 16, 16), mat);
+    const body = new THREE.Mesh(new THREE.SphereGeometry(0.35, TOY_SEGMENTS, TOY_SEGMENTS), mat);
     body.position.y = 0.35;
     body.castShadow = true;
     group.add(body);
 
-    const head = new THREE.Mesh(new THREE.SphereGeometry(0.32, 16, 16), mat);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.32, TOY_SEGMENTS, TOY_SEGMENTS), mat);
     head.position.y = 0.75;
     head.castShadow = true;
     group.add(head);
@@ -748,7 +765,7 @@
   function spawnParticles(x, y, z, count, type) {
     const tex = type === 'heart' ? heartTex : type === 'star' ? starTex : sparkleTex;
     const mat = new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false });
-    for (let i = 0; i < count && particleSprites.length < 35; i++) {
+    for (let i = 0; i < count && particleSprites.length < MAX_PARTICLES; i++) {
       const sprite = new THREE.Sprite(mat.clone());
       sprite.position.set(x, y, z);
       sprite.scale.set(0.3, 0.3, 0.3);
@@ -765,12 +782,10 @@
     }
   }
 
-  let ambientFrame = 0;
   function spawnAmbientParticles() {
-    ambientFrame++;
-    if (ambientFrame % 45 !== 0 || particleSprites.length >= 35) return;
+    if (isMobile || Math.random() > 0.035) return;
     const emojis = ['✨', '⭐', '💫'];
-    const tex = sparkleTex;
+    const tex = createParticleTexture(emojis[Math.floor(Math.random() * emojis.length)]);
     const mat = new THREE.SpriteMaterial({ map: tex, transparent: true, opacity: 0.5, depthWrite: false });
     const sprite = new THREE.Sprite(mat);
     sprite.position.set(
@@ -875,7 +890,7 @@
     state.attempts--;
     updateStats();
     playSound('drop');
-    if (state.attempts <= 3 && state.attempts > 0) showFloatMsg('⚠️ ONLY ' + state.attempts + ' TRIES LEFT!', '#ff6b6b');
+    if (state.attempts <= 3 && state.attempts > 0) showFloatMsg('⚠️ ONLY ' + state.attempts + ' TRIES LEFT!', '#ff7ab8');
   }
 
   function detectGrab() {
@@ -905,7 +920,7 @@
     toy.getWorldPosition(pos);
     spawnParticles(pos.x, pos.y + 0.5, pos.z, 20, 'sparkle');
     spawnParticles(pos.x, pos.y + 0.5, pos.z, 10, 'heart');
-    showFloatMsg('✨ AMAZING! ✨', '#ffd700');
+    showFloatMsg('✨ AMAZING! ✨', '#ffb6d9');
     setTimeout(() => {
       if (clawState.grabbedToy) {
         state.score += clawState.grabbedToy.userData.type.value;
@@ -922,7 +937,7 @@
   function missGrab() {
     clawState.mode = 'returning';
     playSound('miss');
-    showFloatMsg('💭 SO CLOSE!', '#aaa');
+    showFloatMsg('💭 SO CLOSE!', '#ffffff');
   }
 
   function gameOver() {
@@ -1061,15 +1076,22 @@
   const clock = new THREE.Clock();
   let time = 0;
 
-  let lastFrame = 0;
-  const isMobile = window.matchMedia('(max-width: 600px)').matches;
-  const targetFrameTime = isMobile ? 1000 / 45 : 0;
+  let frameSkip = false;
 
-  function animate(now = performance.now()) {
+  function animate() {
     requestAnimationFrame(animate);
-    if (targetFrameTime && now - lastFrame < targetFrameTime) return;
-    lastFrame = now;
-    const dt = Math.min(clock.getDelta(), 0.033);
+
+    if (document.hidden) {
+      clock.getDelta();
+      return;
+    }
+
+    if (isMobile) {
+      frameSkip = !frameSkip;
+      if (frameSkip) return;
+    }
+
+    const dt = clock.getDelta();
     time += dt;
 
     if (clawState.mode === 'idle' || clawState.mode === 'moving') {
@@ -1154,7 +1176,6 @@
       if (d.rotSpeed) p.material.rotation += d.rotSpeed;
       if (d.life <= 0) {
         scene.remove(p);
-        p.material.map.dispose();
         p.material.dispose();
         particleSprites.splice(i, 1);
       }
@@ -1171,7 +1192,7 @@
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+    renderer.setPixelRatio(MAX_PIXEL_RATIO);
   });
 
   loadGame();
