@@ -279,6 +279,9 @@
     .m-btn { width: 60px; height: 60px; font-size: 22px; }
     .m-btn.drop { width: 72px; height: 72px; font-size: 12px; }
     .controls-hint { font-size: 10px; }
+    .controls-hint, .collection-bar { backdrop-filter: none; }
+    .title-bar { animation: none; }
+    .collection-item { animation: none; }
   }
 </style>
 </head>
@@ -413,9 +416,9 @@
   // ============ THREE.JS SETUP ============
   const canvas = document.getElementById('canvas3d');
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 3));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
   renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.enabled = false;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.1;
@@ -436,8 +439,8 @@
   const dirLight = new THREE.DirectionalLight(0xffffff, 1.2);
   dirLight.position.set(5, 10, 7);
   dirLight.castShadow = true;
-  dirLight.shadow.mapSize.width = 2048;
-  dirLight.shadow.mapSize.height = 2048;
+  dirLight.shadow.mapSize.width = 512;
+  dirLight.shadow.mapSize.height = 512;
   dirLight.shadow.camera.near = 0.5;
   dirLight.shadow.camera.far = 30;
   dirLight.shadow.camera.left = -8;
@@ -600,12 +603,12 @@
     const mat = new THREE.MeshStandardMaterial({ color, roughness: 0.6, metalness: 0.05 });
     const matDark = new THREE.MeshStandardMaterial({ color: type.earColor || color, roughness: 0.6 });
 
-    const body = new THREE.Mesh(new THREE.SphereGeometry(0.35, 24, 24), mat);
+    const body = new THREE.Mesh(new THREE.SphereGeometry(0.35, 16, 16), mat);
     body.position.y = 0.35;
     body.castShadow = true;
     group.add(body);
 
-    const head = new THREE.Mesh(new THREE.SphereGeometry(0.32, 24, 24), mat);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.32, 16, 16), mat);
     head.position.y = 0.75;
     head.castShadow = true;
     group.add(head);
@@ -745,7 +748,7 @@
   function spawnParticles(x, y, z, count, type) {
     const tex = type === 'heart' ? heartTex : type === 'star' ? starTex : sparkleTex;
     const mat = new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false });
-    for (let i = 0; i < count && particleSprites.length < 80; i++) {
+    for (let i = 0; i < count && particleSprites.length < 35; i++) {
       const sprite = new THREE.Sprite(mat.clone());
       sprite.position.set(x, y, z);
       sprite.scale.set(0.3, 0.3, 0.3);
@@ -762,10 +765,12 @@
     }
   }
 
+  let ambientFrame = 0;
   function spawnAmbientParticles() {
-    if (Math.random() > 0.05) return;
+    ambientFrame++;
+    if (ambientFrame % 45 !== 0 || particleSprites.length >= 35) return;
     const emojis = ['✨', '⭐', '💫'];
-    const tex = createParticleTexture(emojis[Math.floor(Math.random() * emojis.length)]);
+    const tex = sparkleTex;
     const mat = new THREE.SpriteMaterial({ map: tex, transparent: true, opacity: 0.5, depthWrite: false });
     const sprite = new THREE.Sprite(mat);
     sprite.position.set(
@@ -1056,9 +1061,15 @@
   const clock = new THREE.Clock();
   let time = 0;
 
-  function animate() {
+  let lastFrame = 0;
+  const isMobile = window.matchMedia('(max-width: 600px)').matches;
+  const targetFrameTime = isMobile ? 1000 / 45 : 0;
+
+  function animate(now = performance.now()) {
     requestAnimationFrame(animate);
-    const dt = clock.getDelta();
+    if (targetFrameTime && now - lastFrame < targetFrameTime) return;
+    lastFrame = now;
+    const dt = Math.min(clock.getDelta(), 0.033);
     time += dt;
 
     if (clawState.mode === 'idle' || clawState.mode === 'moving') {
@@ -1160,7 +1171,7 @@
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 3));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
   });
 
   loadGame();
